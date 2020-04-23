@@ -1,0 +1,99 @@
+package oop;
+
+import java.util.Scanner;
+
+abstract class Student {
+	protected String name;
+	protected int admin_no;
+	public Student(String name,int admin_no) {
+		this.name=name;
+		this.admin_no=admin_no;
+	}
+	public void print() {
+		System.out.print(this.name);
+		System.out.print(this.admin_no);
+	}
+	abstract public int getMark();
+	//abstract  public int getprojectMarks();
+}
+ class python extends Student{
+	protected int theory_mark;
+	 public python(String name,int admin_no ,int theory_mark) {
+		 super(name , admin_no);
+		 this.theory_mark=theory_mark;
+		 
+	 }
+	 public void print() {
+		 System.out.print(this.name);
+		 System.out.print(this.admin_no);
+		 System.out.print(this.theory_mark);
+	 }
+	 public int  getMark() {
+		 return this.theory_mark;
+	 }
+ }
+ class javase extends Student{
+		protected int lab_mark;
+		 public javase(String name,int admin_no ,int lab_mark) {
+			 super(name , admin_no);
+			 this.lab_mark=lab_mark;
+			 
+		 }
+		 @Override
+		 public void print() {
+			 System.out.print(this.name);
+			 System.out.print(this.admin_no);
+			 System.out.print(this.lab_mark);
+		 }
+		 public int  getMark() {
+			 return this.lab_mark;
+		 }
+ }
+ class javaee extends Student{
+		protected int theory_mark,project_mark;
+		 public javaee(String name,int admin_no ,int theory_mark,int project_mark) {
+			 super(name , admin_no);
+			 this.theory_mark=theory_mark;
+			 this.project_mark=project_mark;
+			 
+		 }
+		 @Override
+		 public void print() {
+			 System.out.print(this.name);
+			 System.out.print(this.admin_no);
+			 System.out.print(this.theory_mark);
+			 System.out.print(this.project_mark);
+		 }
+		 public int  getMark() {
+			 return this.theory_mark;
+		 }
+		//public int getprojectMarks() {
+	//	 return this.project_mark;
+	//	 }
+ }
+
+public class alloopexcercise {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		String course;
+		course=s.nextLine();
+		if(course=="python") {
+		Student e=new python("tarun",1001,90);
+		e.print();
+		System.out.println(e.getMark());
+	}
+		else if(course=="javase") {
+			Student e= new javase("javase",1002,91);
+			e.print();
+			System.out.println(e.getMark());
+		}
+		else if(course=="javaee") {
+			Student e= new javaee("javaee",1003,92,93);
+			e.print();
+			System.out.println(e.getMark());
+		//	System.out.println(e.getproject_mark());
+		}
+	}
+
+}
